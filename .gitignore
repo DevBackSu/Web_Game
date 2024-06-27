@@ -1,0 +1,9 @@
+# Dependency directories
+/node_modules
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+#json 파일 무시
+*.json

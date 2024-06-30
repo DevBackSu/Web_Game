@@ -35,14 +35,14 @@
         }
 
         const config = {
-            type: Phaser.AUTO, // 게임 타입
-            width: 500, // 가로
-            height: 500, // 세로
+            type: Phaser.AUTO, // 게임 타입. 렌더링 방식을 결정하는 프로퍼티. -> canvas를 자동으로 설정함을 의미
+            width: 500, // 화면의 가로 크기
+            height: 500, // 화면의 세로 크기
             parent: "game", // 게임을 그릴 영역 id
             backgroundColor: "#000000", // 배경 색 RGB
             // 물리 설정. 충돌 처리 등에 사용
             physics: {
-                default: "arcade", // 아케이드 게임
+                default: "arcade", // 아케이드 게임 (phaser에서 만든 자체 물리엔진) vs matter (상용화되어 있는 물리엔진)
                 arcade: {
                     debug: true, // 디버그 모드 설정
                 },

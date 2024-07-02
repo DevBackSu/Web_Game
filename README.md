@@ -8,6 +8,6 @@
 
 ## 화면
 
-![image](https://github.com/DevBackSu/Web_Game/assets/88326586/33fbbbef-5924-4cb8-857e-003bbb4f585e)
+<!-- ![image](https://github.com/DevBackSu/Web_Game/assets/88326586/33fbbbef-5924-4cb8-857e-003bbb4f585e) -->
 
 phaser 홈페이지 : https://phaser.io/download/stable

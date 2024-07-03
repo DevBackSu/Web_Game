@@ -8,7 +8,12 @@
 
 ## 화면
 
-<!-- ![image](https://github.com/DevBackSu/Web_Game/assets/88326586/33fbbbef-5924-4cb8-857e-003bbb4f585e) -->
+현재 실행 시 화면
 
-phaser 홈페이지 : https://phaser.io/download/stable
+![image](https://github.com/DevBackSu/Web_Game/assets/88326586/94700957-0393-4cb1-9042-b2cdce963bbd)
+
+
+## 참고
+
+phaser 홈페이지 : https://phaser.io/download/stable<br/>
 무료 게임 에셋 사이트 : https://opengameart.org

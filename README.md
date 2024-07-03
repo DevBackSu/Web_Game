@@ -12,6 +12,24 @@
 
 ![image](https://github.com/DevBackSu/Web_Game/assets/88326586/94700957-0393-4cb1-9042-b2cdce963bbd)
 
+## 명령어
+
+```cmd
+//webpack 서버 실행
+npm run serve
+npm start
+
+//개발 모드 빌드 (디버그용)
+npm run build:dev
+npm run dev
+
+//프로덕션 모드 빌드 (배포용)
+npm run build
+npm run build:prod
+
+//파일 변경 감시
+npm run watch
+```
 
 ## 참고
 

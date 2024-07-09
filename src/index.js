@@ -1,5 +1,7 @@
 // src/index.js
 import Phaser from 'phaser'
+import IntroScene from './intro.js';
+import MainScene from './main.js'
 
 var game = new Phaser.Game({
     type: Phaser.AUTO,
@@ -16,10 +18,14 @@ var game = new Phaser.Game({
         // autoCenter: Phaser.Scale.Center.CENTER_HORIZONTALLY,
         autoCenter: Phaser.Scale.Center.CENTER_BOTH // 가로 및 세로 방향으로 중앙에 배치
     },
-    scene : {
-        preload: preload,
-        create : create
-    }
+    // scene : {
+    //     preload: preload,
+    //     create : create
+    // }
+    scene: [
+        IntroScene,
+        MainScene
+    ]
 })
 
 function preload(){

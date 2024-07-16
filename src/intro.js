@@ -13,7 +13,7 @@ export default class IntroScene extends Phaser.Scene {
         this.add.text(this.game.scale.width / 2, 200, 'Web Game',{
             fontFamily: 'Arial',
             fontSize: 80,
-            color: 'red'
+            color: '#87CEFA'
         }).setOrigin(0.5, 0.5)
         this.textTap = this.add.text(this.game.scale.width/2, 500, 'Tap to continue', {
             fontFamily: 'Arial',

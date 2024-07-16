@@ -9,7 +9,7 @@ var game = new Phaser.Game({
     scale: {
         // mode : Phaser.Scale.FIT, //종횡비를 유지하며 캔버스를 창 크기에 맞춤
         // mode: Phaser.Scale.RESIZE, //종횡비를 무시하고 캔버스를 창 크기에 맞춤
-        mode: Phaser.Scale.HEIGHT_CONTROLS_WIDTH, //높이를 꽉 채우고 비율에 맞게 가로를 조정
+        // mode: Phaser.Scale.HEIGHT_CONTROLS_WIDTH, //높이를 꽉 채우고 비율에 맞게 가로를 조정
         // mode : Phaser.Scale.WIDTH_CONTROLS_HEIGHT도 가능
 
         // 게임은 아래의 해상도로 렌더링 됨

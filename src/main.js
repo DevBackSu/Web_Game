@@ -10,6 +10,13 @@ export default class MainScene extends Phaser.Scene {
     }
 
     create() {
-        this.add.image(this.scale.width / 2, this.scale.height / 2, 'mouse');
+        // 마우스 커서를 숨깁니다.
+        this.input.setDefaultCursor('none');
+        this.mouseImage = this.add.image(this.scale.width / 2, this.scale.height / 2, 'mouse');
+    }
+
+    update(){
+        this.mouseImage.x = this.input.activePointer.x;
+        this.mouseImage.y = this.input.activePointer.y;
     }
 }

@@ -10,12 +10,12 @@ export default class MainScene extends Phaser.Scene {
     }
 
     create() {
-        // 마우스 커서를 숨깁니다.
-        this.input.setDefaultCursor('none');
+        this.input.setDefaultCursor('none'); //마우스 포인터 숨기기
         this.mouseImage = this.add.image(this.scale.width / 2, this.scale.height / 2, 'mouse');
     }
 
     update(){
+        //이미지의 위치를 마우스 포인터 위치로 할당
         this.mouseImage.x = this.input.activePointer.x;
         this.mouseImage.y = this.input.activePointer.y;
     }

@@ -28,14 +28,14 @@ var game = new Phaser.Game({
     ]
 })
 
-function preload(){
-    this.load.image('mouse', '../asset/image/mouse1.png'
-        // , { frameWidth: 50, frameHeight: 50 } //이미지 로드 시 이미지 프레임 크기 설정
-    )
-}
+// function preload(){
+//     this.load.image('mouse', '../asset/image/mouse1.png'
+//         // , { frameWidth: 50, frameHeight: 50 } //이미지 로드 시 이미지 프레임 크기 설정
+//     )
+// }
 
-function create(){
-    //이미지가 생성되는 중심 좌표 위치로, 범위 내에 지정해야 함
-    this.add.image(400, 300, 'mouse');
-    // this.add.image(this.scale.width / 2, this.scale.height / 2, 'mouse');
-}
+// function create(){
+//     //이미지가 생성되는 중심 좌표 위치로, 범위 내에 지정해야 함
+//     this.add.image(400, 300, 'mouse');
+//     // this.add.image(this.scale.width / 2, this.scale.height / 2, 'mouse');
+// }

@@ -33,13 +33,13 @@ export default class IntroScene extends Phaser.Scene {
         //     this.scene.start('Main') //Main 씬으로 이동
         // })
 
-        // this.tweens.add({
-        //     targets: this.button,
-        //     alpha: 0,
-        //     duration: 500,
-        //     ease: 'Linear',
-        //     yoyo: true,
-        //     repeat: -1
-        // })
+        this.tweens.add({
+            targets: this.textTap,
+            alpha: 0,
+            duration: 500,
+            ease: 'Linear',
+            yoyo: true,
+            repeat: -1
+        })
     }
 }

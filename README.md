@@ -1,5 +1,5 @@
-# Web_Game
-웹 게임 개발
+# catching bugs
+공부용 웹 게임 "벌레 잡기"
 
 - **Phaser 3**: HTML5 기반 게임 개발 프레임워크
 - **HTML/CSS/JavaScript**: 웹 기반 애플리케이션 개발
@@ -31,12 +31,23 @@ npm run build:prod
 npm run watch
 ```
 
+# 진행 상황
+- 인트로 화면과 메인 화면 구분
+- 벌레 이미지를 무작위 크기로 무작위 위치에서 생성
+- 벌레 이미지 클릭 시 이미지 삭제 (클릭하지 않으면 1초 뒤 destroy)
+
+# 목표
+- 시간 설정 (30초)
+- 벌레 잡을 때마다 + 1점
+- 점수별 엔딩 구분
+- 배포
+
 ## 참고
 
 phaser 홈페이지 : https://phaser.io/download/stable<br/>
 무료 게임 에셋 사이트 : https://opengameart.org
 
-## 목표
+<!-- ## 목표
 - 상단 버튼 클릭 시 구현 or 출력 화면 <-> 코드 화면
 - 물음표 버튼 클릭 시 게임 방법 설명
 - 뒤로 가기 버튼 클릭 시 이전 페이지로 이동
@@ -49,4 +60,4 @@ phaser 홈페이지 : https://phaser.io/download/stable<br/>
 - HTML 문제
 - CSS 문제
 - JS 문제
-- JAVA 문제
+- JAVA 문제 -->

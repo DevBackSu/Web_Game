@@ -3,15 +3,29 @@ import Phaser from 'phaser';
 export default class MainScene extends Phaser.Scene {
     constructor() {
         super({ key: 'Main' });
+        // this.score = 0; // 점수를 추적할 변수
+        // this.timeLeft = 5; // 남은 시간을 추적할 변수
     }
 
     preload() {
         this.load.image('mouse', '../asset/image/mouse1.png');
-        this.load.image('bug', '../asset/image/bug.png')
+        this.load.image('bug', '../asset/image/bug.png');
+        this.load.image('ghosts', '../asset/image/ghosts.png'); // 새로운 이미지 로드
     }
 
     create() {
-        // phaser는 객체 추가 순서대로 z-index(레이어 순서)가 결정되기 때문에 bug를 먼저 생성하고 마우스를 생성하도록 수정 -> 근데 안 됨
+        this.score = 0; // 점수 초기화
+        this.timeLeft = 5; // 남은 시간 초기화
+
+        // 30초 타이머 설정
+        this.time.addEvent({
+            delay: 1000, // 1초마다 실행
+            callback: this.updateTimer,
+            callbackScope: this,
+            loop: true
+        });
+
+        // 1초마다 새로운 버그 이미지를 추가하는 타이머 설정
         this.time.addEvent({
             delay: 1000, // 1초마다 실행
             callback: this.addRandomBug,
@@ -19,17 +33,36 @@ export default class MainScene extends Phaser.Scene {
             loop: true
         });
 
-        this.input.setDefaultCursor('none'); //마우스 포인터 숨기기
+        this.input.setDefaultCursor('none'); // 마우스 포인터 숨기기
         this.mouseImage = this.add.image(this.scale.width / 2, this.scale.height / 2, 'mouse');
-        this.mouseImage.setDepth(1); //마우스 이미지의 깊이를 1로 설정해 다른 이미지보다 앞에 있도록 함
+        this.mouseImage.setDepth(1); // 마우스 이미지의 깊이를 1로 설정해 다른 이미지보다 앞에 있도록 함
 
-        // this.bugImage = this.add.image(this.scale.width / 2, this.scale.height / 2, 'bug');
+        // 점수 텍스트를 화면에 추가
+        this.scoreText = this.add.text(10, 10, `Score: ${this.score}`, {
+            fontSize: '32px',
+            fill: '#fff'
+        });
+
+        // 남은 시간 텍스트를 화면에 추가
+        this.timerText = this.add.text(10, 50, `Time Left: ${this.timeLeft}`, {
+            fontSize: '32px',
+            fill: '#fff'
+        });
     }
 
-    update(){
-        //이미지의 위치를 마우스 포인터 위치로 할당
+    update() {
+        // 이미지의 위치를 마우스 포인터 위치로 할당
         this.mouseImage.x = this.input.activePointer.x;
         this.mouseImage.y = this.input.activePointer.y;
+    }
+
+    updateTimer() {
+        this.timeLeft -= 1; // 남은 시간 감소
+        this.timerText.setText(`Time Left: ${this.timeLeft}`); // 남은 시간 텍스트 업데이트
+
+        if (this.timeLeft <= 0) {
+            this.gameOver(); // 남은 시간이 0이 되면 게임 종료
+        }
     }
 
     addRandomBug() {
@@ -51,15 +84,34 @@ export default class MainScene extends Phaser.Scene {
         // 클릭 이벤트 추가
         bug.on('pointerdown', () => {
             console.log('Bug clicked!');
-            bug.destroy(); // 클릭 시 버그 이미지 삭제
+            bug.setTexture('ghosts'); // 클릭 시 이미지 변경
+            this.incrementScore(); // 점수 증가
+
+            this.time.addEvent({
+                delay: 200, // 0.2초 후에 버그 이미지 삭제
+                callback: () => {
+                    bug.destroy();
+                },
+                callbackScope: this
+            });
         });
 
         this.time.addEvent({
-            delay: 1000, // 3초 후에 실행
+            delay: 1000, // 1초 후에 실행
             callback: () => {
                 bug.destroy();
             },
             callbackScope: this
         });
+    }
+
+    incrementScore() {
+        this.score += 1; // 점수 증가
+        this.scoreText.setText(`Score: ${this.score}`); // 점수 텍스트 업데이트
+        this.registry.set('score', this.score); // 점수 저장
+    }
+
+    gameOver() {
+        this.scene.start('End'); // EndScene으로 전환
     }
 }

@@ -3,6 +3,7 @@ import Phaser from 'phaser'
 import IntroScene from './intro.js';
 import MainScene from './main.js'
 import EndScene from './End.js';
+import DiffScene from './diff.js';
 
 var game = new Phaser.Game({
     type: Phaser.AUTO,
@@ -25,6 +26,7 @@ var game = new Phaser.Game({
     // }
     scene: [
         IntroScene,
+        DiffScene,
         MainScene,
         EndScene
     ]

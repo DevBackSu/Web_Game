@@ -3,8 +3,8 @@ import Phaser from 'phaser';
 export default class MainScene extends Phaser.Scene {
     constructor() {
         super({ key: 'Main' });
-        // this.score = 0; // 점수를 추적할 변수
-        // this.timeLeft = 5; // 남은 시간을 추적할 변수
+        // this.score = 0;
+        // this.timeLeft = 5;
     }
 
     preload() {
@@ -15,9 +15,10 @@ export default class MainScene extends Phaser.Scene {
 
     create() {
         this.score = 0; // 점수 초기화
-        this.timeLeft = 5; // 남은 시간 초기화
+        // this.timeLeft = 30; // 남은 시간 초기화
+        this.timeLeft = this.registry.get('gameTime') || 30; // 남은 시간 초기화 (기본값 30초)
 
-        // 30초 타이머 설정
+        // 게임 타이머 설정
         this.time.addEvent({
             delay: 1000, // 1초마다 실행
             callback: this.updateTimer,
@@ -26,8 +27,9 @@ export default class MainScene extends Phaser.Scene {
         });
 
         // 1초마다 새로운 버그 이미지를 추가하는 타이머 설정
+        this.bugSpeed = this.registry.get('bugSpeed') || 1000; // 버그 생성 속도
         this.time.addEvent({
-            delay: 1000, // 1초마다 실행
+            delay: this.bugSpeed, // 1초마다 실행
             callback: this.addRandomBug,
             callbackScope: this,
             loop: true
@@ -83,7 +85,7 @@ export default class MainScene extends Phaser.Scene {
 
         // 클릭 이벤트 추가
         bug.on('pointerdown', () => {
-            console.log('Bug clicked!');
+            // console.log('Bug clicked!');
             bug.setTexture('ghosts'); // 클릭 시 이미지 변경
             this.incrementScore(); // 점수 증가
 
@@ -97,7 +99,7 @@ export default class MainScene extends Phaser.Scene {
         });
 
         this.time.addEvent({
-            delay: 1000, // 1초 후에 실행
+            delay: this.bugSpeed, // 1초 후에 실행 -> 0.5초 후에 실행
             callback: () => {
                 bug.destroy();
             },

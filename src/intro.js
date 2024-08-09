@@ -5,10 +5,6 @@ export default class IntroScene extends Phaser.Scene {
         super({ key: 'Intro' })
     }
 
-    preload() {
-
-    }
-
     create() {
         this.add.text(this.game.scale.width / 2, 200, 'catching bugs', {
             fontFamily: 'Arial',
@@ -30,7 +26,7 @@ export default class IntroScene extends Phaser.Scene {
         }).setAlpha(1).setOrigin(0.5, 0.5)
 
         this.input.on('pointerdown', (point) => {
-            this.scene.start('Main') //Main 씬으로 이동
+            this.scene.start('Diff') //Diff 씬으로 이동
         })
 
         this.tweens.add({    // 애니메이션 설정 -> 텍스트가 0.5초간 투명 -> 불투명을 반복

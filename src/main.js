@@ -99,7 +99,7 @@ export default class MainScene extends Phaser.Scene {
         });
 
         this.time.addEvent({
-            delay: this.bugSpeed, // 1초 후에 실행 -> 0.5초 후에 실행
+            delay: this.bugSpeed,
             callback: () => {
                 bug.destroy();
             },

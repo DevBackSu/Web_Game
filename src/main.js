@@ -8,12 +8,15 @@ export default class MainScene extends Phaser.Scene {
     }
 
     preload() {
+        // 음악 파일 적당한 거 찾아서 넣기
         this.load.image('mouse', '../asset/image/mouse1.png');
         this.load.image('bug', '../asset/image/bug.png');
         this.load.image('ghosts', '../asset/image/ghosts.png'); // 새로운 이미지 로드
     }
 
     create() {
+        // 음악 재생
+
         this.score = 0; // 점수 초기화
         // this.timeLeft = 30; // 남은 시간 초기화
         this.timeLeft = this.registry.get('gameTime') || 30; // 남은 시간 초기화 (기본값 30초)
@@ -114,6 +117,7 @@ export default class MainScene extends Phaser.Scene {
     }
 
     gameOver() {
+        // 씬 넘어가기 전에 메인 음악 종료
         this.scene.start('End'); // EndScene으로 전환
     }
 }

@@ -6,11 +6,12 @@ export default class EndScene extends Phaser.Scene {
     }
 
     preload() {
-        this.load.image('mouse', '../asset/image/mouse1.png');
+        this.input.setDefaultCursor('auto'); // 마우스 포인터 보이기
+        // this.load.image('mouse', '../asset/image/mouse1.png');
     }
 
     create() {
-        this.mouseImage = this.add.image(this.scale.width / 2, this.scale.height / 2, 'mouse');
+        // this.mouseImage = this.add.image(this.scale.width / 2, this.scale.height / 2, 'mouse');
 
         // 점수를 레지스트리에서 가져오고 undefined일 경우 0으로 설정
         const score = this.registry.get('score') || 0;
@@ -76,19 +77,31 @@ export default class EndScene extends Phaser.Scene {
         }).setOrigin(0.5, 0.5);
 
         // 게임 재시작 텍스트
-        this.add.text(this.scale.width / 2, this.scale.height / 2 + 150, 'Click to Restart', {
+        const retry = this.add.text(this.scale.width / 2, this.scale.height / 2 + 150, 'Click to Restart', {
             fontSize: '24px',
             fill: '#fff'
         }).setOrigin(0.5, 0.5);
 
-        this.input.on('pointerdown', () => {
-            this.scene.start('Main'); // MainScene으로 다시 시작
-        });
+        retry.setInteractive();
+        retry.on('pointerdown', () => {
+            this.scene.start('Main');
+        })
+
+        // Intro 화면으로 이동
+        const Intro = this.add.text(this.scale.width / 2, this.scale.height / 2 + 200, 'Main', {
+            fontSize: '24px',
+            fill: '#fff'
+        }).setOrigin(0.5, 0.5);
+
+        Intro.setInteractive();
+        Intro.on('pointerdown', () => {
+            this.scene.start('Intro');
+        })
     }
 
-    update() {
-        // 이미지의 위치를 마우스 포인터 위치로 할당
-        this.mouseImage.x = this.input.activePointer.x;
-        this.mouseImage.y = this.input.activePointer.y;
-    }
+    // update() {
+    //     // 이미지의 위치를 마우스 포인터 위치로 할당
+    //     this.mouseImage.x = this.input.activePointer.x;
+    //     this.mouseImage.y = this.input.activePointer.y;
+    // }
 }

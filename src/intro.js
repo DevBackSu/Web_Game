@@ -3,6 +3,7 @@ import Phaser from 'phaser';
 export default class IntroScene extends Phaser.Scene {
     constructor() {
         super({ key: 'Intro' })
+        
     }
 
     create() {

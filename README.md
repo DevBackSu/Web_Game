@@ -10,7 +10,7 @@
 
 현재 실행 시 화면
 
-![image](https://github.com/DevBackSu/Web_Game/assets/88326586/94700957-0393-4cb1-9042-b2cdce963bbd)
+![image](/asset/image/image.png)
 
 ## 명령어
 
@@ -52,18 +52,3 @@ npm run watch
 
 phaser 홈페이지 : https://phaser.io/download/stable<br/>
 무료 게임 에셋 사이트 : https://opengameart.org
-
-<!-- ## 목표
-- 상단 버튼 클릭 시 구현 or 출력 화면 <-> 코드 화면
-- 물음표 버튼 클릭 시 게임 방법 설명
-- 뒤로 가기 버튼 클릭 시 이전 페이지로 이동
-- 오류 문장 클릭 or 입력 시
-  - 정답이면 성공 -> 다음 문제
-  - 오답이면 실패 -> 현재 문제 진행
-    - 3번 실패 시 '공부하세요' 하고 관련 공식 사이트로 이동시킴
-
-### 문제 목록
-- HTML 문제
-- CSS 문제
-- JS 문제
-- JAVA 문제 -->

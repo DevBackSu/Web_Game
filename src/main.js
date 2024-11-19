@@ -118,10 +118,6 @@ export default class MainScene extends Phaser.Scene {
 
     gameOver() {
         // 씬 넘어가기 전에 메인 음악 종료
-        // this.input.setDefaultCursor(true); // 마우스 포인터 보이기
-        // if(this.mouseImage) {  // 마우스 이미지 삭제
-        //     this.mouseImage.destroy();
-        // }
         this.scene.start('End'); // EndScene으로 전환
     }
 }

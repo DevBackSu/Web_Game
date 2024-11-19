@@ -20,15 +20,18 @@ export default class IntroScene extends Phaser.Scene {
         // }).setInteractive()
         // .on('pointerdown', () => this.scene.start('Main'));
 
-        this.textTap = this.add.text(this.game.scale.width/2, 500, 'Tap to continue', {
+        const textTap = this.add.text(this.game.scale.width/2, 500, 'Tap to continue', {
             fontFamily: 'Arial',
             fontSize:50,
             color: 'white'
         }).setAlpha(1).setOrigin(0.5, 0.5)
 
-        this.input.on('pointerdown', (point) => {
+        textTap.setInteractive();
+        textTap.on('pointerdown', (point) => {
             this.scene.start('Diff') //Diff 씬으로 이동
         })
+
+        // 다른 게임 이동 버튼 추가하기
 
         this.tweens.add({    // 애니메이션 설정 -> 텍스트가 0.5초간 투명 -> 불투명을 반복
             targets: this.textTap,  // 애니메이션을 적용할 대상
